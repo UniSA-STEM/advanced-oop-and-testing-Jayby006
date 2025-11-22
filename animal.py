@@ -68,5 +68,33 @@ class Animal:
             if issue["Active"]:
                 return True
         return False
+     
+     def __str__(self):
+        return self.__name + " the " + self.__species + " (" + self.__category + ")"
+
+     
+class Mammal(Animal):
+    def __init__(self, name, species, age, diet):
+        super().__init__(name, species, age, diet, "mammal")
+
+    def make_sound(self):
+        print(self.get_name() + " growls.")
 
 
+class Bird(Animal):
+    def __init__(self, name, species, age, diet):
+        super().__init__(name, species, age, diet, "bird")
+
+    def make_sound(self):
+        print(self.get_name() + " chirps.")
+
+
+class Reptile(Animal):
+    def __init__(self, name, species, age, diet):
+        super().__init__(name, species, age, diet, "reptile")
+
+    def make_sound(self):
+        print(self.get_name() + " hisses.")
+
+
+    
