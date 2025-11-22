@@ -52,4 +52,21 @@ class Animal:
      def sleep(self):
         print(self.__name + " is sleeping.")
 
-        
+
+     def add_health_issue(self, description, date_reported, severity, treatment):
+        issue = {
+            "description": description,
+            "date": date_reported,
+            "severity": severity,
+            "treatment": treatment,
+            "active": True
+            }
+        self.__health_issues.append(issue)
+
+     def has_active_issue(self):
+        for issue in self.__health_issues:
+            if issue["Active"]:
+                return True
+        return False
+
+
