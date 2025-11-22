@@ -41,3 +41,15 @@ class Animal:
      
      def set_enclosure(self, enclosure):
         self.__enclosure = enclosure
+
+
+     def make_sound(self):
+        print(self.__name + " makes a sound.")
+
+     def eat(self):
+        print(self.__name + " is eating " + self.__diet)
+
+     def sleep(self):
+        print(self.__name + " is sleeping.")
+
+        
