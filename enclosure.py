@@ -48,3 +48,30 @@ class Enclosure:
             self.__animals.remove(animal)
             animal.set_enclosure(None)
             print(animal.get_name() + " removed from " + self.__name + ".")
+
+    def dirty(self):
+        self.__cleanliness = "Dirty"
+
+    def clean(self):
+        self.__cleanliness = "Clean"
+
+    def get_status(self):
+        animal_names = ""
+
+        count = 0
+        for animal in self.__animals:
+            if count == 0:
+                animal_names = animal.get_name()
+            else:
+                animal_names = animal_names + ", " + animal.get_name()
+            count = count + 1
+
+        if count == 0:
+            animal_names = "No animals"
+
+        status = "Enclosure: " + self.__name
+        status = status + " | Environment: " + self.__environment_type
+        status = status + " | Cleanliness: " + self.__cleanliness
+        status = status + " | Animals: " + animal_names
+        return status
+
