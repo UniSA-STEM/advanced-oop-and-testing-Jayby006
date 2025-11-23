@@ -28,3 +28,23 @@ class Enclosure:
 
     def get_animals(self):
         return self.__animals
+    
+    def add_animal(self, animal):
+        if animal.get_category() != self.__allowed_category:
+            print("Cannot add " + animal.get_name() + " to " + self.__name + " (wrong category).")
+            return
+
+        if animal.has_active_issue():
+            print("Cannot add " + animal.get_name() + " to " + self.__name + " (animal is under treatment).")
+            return
+
+        if animal not in self.__animals:
+            self.__animals.append(animal)
+            animal.set_enclosure(self)
+            print(animal.get_name() + " added to " + self.__name + ".")
+
+    def remove_animal(self, animal):
+        if animal in self.__animals:
+            self.__animals.remove(animal)
+            animal.set_enclosure(None)
+            print(animal.get_name() + " removed from " + self.__name + ".")
