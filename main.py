@@ -30,3 +30,16 @@ def main():
     keeper = Zookeeper("Jayanga", "ZK001")
     vet = Veterinarian("Mark", "VT001")
     print("Created staff:", keeper.get_name(), "(Zookeeper),", vet.get_name(), "(Veterinarian)")
+
+
+
+    print("Assigning staff to enclosures and animals...")
+    keeper.assign_enclosure(savannah)
+    keeper.assign_enclosure(aviary)
+    keeper.assign_enclosure(reptile_house)
+
+    vet.assign_animal(lion)
+    vet.assign_animal(snake)
+    print(keeper.get_name() + " assigned to all enclosures.")
+    print(vet.get_name() + " assigned to", lion.get_name(), "and", snake.get_name())
+
