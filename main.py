@@ -72,5 +72,13 @@ def main():
     print("Health check for Leo after recording issue:")
     vet.health_check(lion)
 
+    print("Trying to move Leo (under treatment) to the aviary...")
+    aviary.add_animal(lion)  
+
+    print("Final enclosure status reports:")
+    print(savannah.get_status())
+    print(aviary.get_status())
+    print(reptile_house.get_status())
+
 if __name__ == "__main__":
     main()
