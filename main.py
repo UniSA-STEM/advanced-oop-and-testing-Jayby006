@@ -43,3 +43,34 @@ def main():
     print(keeper.get_name() + " assigned to all enclosures.")
     print(vet.get_name() + " assigned to", lion.get_name(), "and", snake.get_name())
 
+    print("Adding animals to enclosures...")
+    savannah.add_animal(lion)
+    aviary.add_animal(parrot)
+    reptile_house.add_animal(snake)
+
+    print("Zookeeper feeds animals and cleans enclosures...")
+    keeper.feed_animal(lion)
+    keeper.feed_animal(parrot)
+
+    keeper.clean_enclosure(savannah)
+    keeper.clean_enclosure(aviary)
+    keeper.clean_enclosure(reptile_house)
+
+    print("Veterinarian health checks...")
+    print("Initial health check for Leo:")
+    vet.health_check(lion)
+
+    print("Recording a health issue for Leo...")
+    vet.create_treatment(
+        lion,
+        "Limping on back leg",
+        "2025-11-24",
+        "moderate",
+        "Rest and medicine for 5 days."
+    )
+
+    print("Health check for Leo after recording issue:")
+    vet.health_check(lion)
+
+if __name__ == "__main__":
+    main()
