@@ -9,6 +9,8 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 class Animal:
      def __init__(self, name, species, age, diet, category):
+        if age < 0:
+            age = 0
         self.__name = name
         self.__species = species
         self.__age = age
@@ -65,7 +67,7 @@ class Animal:
 
      def has_active_issue(self):
         for issue in self.__health_issues:
-            if issue["Active"]:
+            if issue["active"]:
                 return True
         return False
      
