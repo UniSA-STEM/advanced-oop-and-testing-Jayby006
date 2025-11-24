@@ -13,22 +13,24 @@ from staff import Zookeeper, Veterinarian
 
 
 def main():
+     
 
-    print("=== Creating animals... ===")
+    print("=== Creating animals... ===")      # Create some animals for the zoo
+
     lion = Mammal("Leo", "Lion", 5, "Meat")
     parrot = Bird("Polly", "Parrot", 2, "Seeds")
     snake = Reptile("Snake", "Python", 3, "Rodents")
     print("Created animals:", lion.get_name(), ",", parrot.get_name(), ",", snake.get_name())
     print()
 
-    print("=== Creating enclosures... ===")
+    print("=== Creating enclosures... ===")       #Create enclosures for different categories of animals
     savannah = Enclosure("Savannah Plains", "Savannah", 500, "mammal")
     aviary = Enclosure("Tropical Aviary", "Rainforest", 200, "bird")
     reptile_house = Enclosure("Reptile House", "Desert", 150, "reptile")
     print("Created enclosures:", savannah.get_name(), ",", aviary.get_name(), ",", reptile_house.get_name())
     print()
 
-    print("=== Creating staff...===")
+    print("=== Creating staff...===") #Create staff members (zookeeper and veterinarian)
     keeper = Zookeeper("Jayanga", "ZK001")
     vet = Veterinarian("Mark", "VT001")
     print("Created staff:", keeper.get_name(), "(Zookeeper),", vet.get_name(), "(Veterinarian)")
@@ -36,7 +38,7 @@ def main():
 
 
 
-    print("=== Assigning staff to enclosures and animals...===")
+    print("=== Assigning staff to enclosures and animals...===") #Assign staff to enclosures and animals
     keeper.assign_enclosure(savannah)
     keeper.assign_enclosure(aviary)
     keeper.assign_enclosure(reptile_house)
@@ -47,14 +49,14 @@ def main():
     print(vet.get_name() + " assigned to", lion.get_name(), "and", snake.get_name())
     print()
 
-    print("=== Adding animals to enclosures... === ")
+    print("=== Adding animals to enclosures... === ") #Put animals into the correct enclosures
     savannah.add_animal(lion)
     aviary.add_animal(parrot)
     reptile_house.add_animal(snake)
     print()
 
 
-    print("=== Zookeeper feeds animals and cleans enclosures... ===")
+    print("=== Zookeeper feeds animals and cleans enclosures... ===") # Zookeeper does daily tasks: feed animals and clean enclosures
     keeper.feed_animal(lion)
     keeper.feed_animal(parrot)
 
@@ -63,7 +65,7 @@ def main():
     keeper.clean_enclosure(reptile_house)
     print()
 
-    print("=== Veterinarian health checks...===")
+    print("=== Veterinarian health checks...===") # Veterinarian checks animal health and records an issue
     print("Initial health check for Leo:")
     vet.health_check(lion)
     print()
@@ -82,11 +84,11 @@ def main():
     vet.health_check(lion)
     print()
 
-    print("=== Trying to move Leo (under treatment) to the aviary...===")
+    print("=== Trying to move Leo (under treatment) to the aviary...===") # Try to move an animal that is under treatment, should be blocked.
     aviary.add_animal(lion)  
     print()
 
-    print("Final enclosure status reports:")
+    print("Final enclosure status reports:") # Show final status of each enclosure in the zoo
     print(savannah.get_status())
     print(aviary.get_status())
     print(reptile_house.get_status())
