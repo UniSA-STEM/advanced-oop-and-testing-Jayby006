@@ -10,6 +10,10 @@ from animal import Animal
 
 class Enclosure:
 
+    """
+    The Enclosure class stores animals that belong to one category only and it also tracks cleanliness and provides a status report.
+    """
+
     def __init__(self, name, environment_type, size, allowed_category):
         self.__name = name
         self.__environment_type = environment_type   
@@ -18,7 +22,7 @@ class Enclosure:
         self.__cleanliness = "Clean"
         self.__animals = []                        
 
-    def get_name(self):
+    def get_name(self):      #simple gatters.
         return self.__name
 
     def get_environment_type(self):
@@ -30,16 +34,18 @@ class Enclosure:
     def get_animals(self):
         return self.__animals
     
-    def add_animal(self, animal):
-        if animal.get_category() != self.__allowed_category:
+
+    #adding and removing animals
+    def add_animal(self, animal):   
+        if animal.get_category() != self.__allowed_category:  # check if animal belongs to the correct category
             print("Cannot add " + animal.get_name() + " to " + self.__name + " (wrong category).")
             return
 
-        if animal.has_active_issue():
+        if animal.has_active_issue():  # check if animal has an active health issue
             print("Cannot add " + animal.get_name() + " to " + self.__name + " (animal is under treatment).")
             return
 
-        if animal not in self.__animals:
+        if animal not in self.__animals:  # add if not already inside
             self.__animals.append(animal)
             animal.set_enclosure(self)
             print(animal.get_name() + " added to " + self.__name + ".")
@@ -50,14 +56,15 @@ class Enclosure:
             animal.set_enclosure(None)
             print(animal.get_name() + " removed from " + self.__name + ".")
 
+       #cleanliness controls
     def dirty(self):
         self.__cleanliness = "Dirty"
 
     def clean(self):
         self.__cleanliness = "Clean"
 
-    def get_status(self):
-        animal_names = ""
+    def get_status(self): # enclosure status report
+        animal_names = ""     # build a comma separated list of names
 
         count = 0
         for animal in self.__animals:
@@ -67,7 +74,7 @@ class Enclosure:
                 animal_names = animal_names + ", " + animal.get_name()
             count = count + 1
 
-        if count == 0:
+        if count == 0:    # if empty enclosure
             animal_names = "No animals"
 
         status = "Enclosure: " + self.__name
