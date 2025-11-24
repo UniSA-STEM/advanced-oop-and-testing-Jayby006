@@ -90,7 +90,6 @@ def main():
     print(savannah.get_status())
     print(aviary.get_status())
     print(reptile_house.get_status())
-    print()
 
 
 if __name__ == "__main__":
