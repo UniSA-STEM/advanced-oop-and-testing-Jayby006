@@ -32,3 +32,28 @@ def test_enclosure_reject_wrong_category():
     savannah.add_animal(parrot)   
     assert parrot not in savannah.get_animals()
 
+def test_zookeeper_feeds_animal():
+    lion = Mammal("Leo", "Lion", 5, "Meat")
+    keeper = Zookeeper("Anna", "ZK001")
+
+    keeper.feed_animal(lion)   
+    assert lion.get_name() == "Leo"
+
+
+def test_vet_adds_treatment():
+    snake = Reptile("Snek", "Python", 3, "Rodents")
+    vet = Veterinarian("Mark", "VT001")
+
+    vet.create_treatment(
+        snake,
+        "Skin infection",
+        "2025-11-24",
+        "medium",
+        "Apply ointment"
+    )
+
+    issues = snake.get_health_issues()
+    assert len(issues) == 1
+    assert issues[0]["description"] == "Skin infection"
+    assert issues[0]["active"] is True
+
