@@ -1,8 +1,32 @@
 '''
-File: filename.py
-Description: A brief description of this Python module.
-Author: Billy Bizilis
-ID: 110100110
-Username: bizvy001
+File: main.py
+Description: Description: This is the main script that showing animals, enclosures and staff working together.
+Author: Jayanga Madushanka Bandara Bathabure Gedara
+ID: 110432974
+Username: jayby006
 This is my own work as defined by the University's Academic Integrity Policy.
-''
+'''
+
+from animal import Mammal, Bird, Reptile
+from enclosure import Enclosure
+from staff import Zookeeper, Veterinarian
+
+
+def main():
+
+    print("Creating animals...")
+    lion = Mammal("Leo", "Lion", 5, "Meat")
+    parrot = Bird("Polly", "Parrot", 2, "Seeds")
+    snake = Reptile("Snake", "Python", 3, "Rodents")
+    print("Created animals:", lion.get_name(), ",", parrot.get_name(), ",", snake.get_name())
+
+    print("Creating enclosures...")
+    savannah = Enclosure("Savannah Plains", "Savannah", 500, "mammal")
+    aviary = Enclosure("Tropical Aviary", "Rainforest", 200, "bird")
+    reptile_house = Enclosure("Reptile House", "Desert", 150, "reptile")
+    print("Created enclosures:", savannah.get_name(), ",", aviary.get_name(), ",", reptile_house.get_name())
+
+    print("Creating staff...")
+    keeper = Zookeeper("Jayanga", "ZK001")
+    vet = Veterinarian("Mark", "VT001")
+    print("Created staff:", keeper.get_name(), "(Zookeeper),", vet.get_name(), "(Veterinarian)")
