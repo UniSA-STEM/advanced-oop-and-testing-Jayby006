@@ -1,3 +1,12 @@
+'''
+File: test_zoo.py
+Description: Includes unit tests to check animals, enclosures and staff behave correctly.
+Author: Jayanga Madushanka Bandara Bathabure Gedara
+ID: 110432974
+Username: jayby006
+This is my own work as defined by the University's Academic Integrity Policy.
+'''
+
 from animal import Mammal, Bird, Reptile
 from enclosure import Enclosure
 from staff import Zookeeper, Veterinarian
